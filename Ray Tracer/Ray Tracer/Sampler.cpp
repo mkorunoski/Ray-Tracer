@@ -1,31 +1,29 @@
 #include "Sampler.h"
 
-Sampler::Sampler(int width, int height)
+Sampler::Sampler(Film& film)
 {
-	this->width = width;
-	this->height = height;
+	this->film = &film;
 	currSample = Sample();
 }
 
 Sampler& Sampler::operator=(const Sampler& sampler)
 {
-	width = sampler.width;
-	height = sampler.height;
+	film = sampler.film;
 	currSample = sampler.currSample;
 	return *this;
 }
 
-bool Sampler::generateSample(Sample* sample)
+bool Sampler::generateSample(Sample& sample)
 {
-	*sample = currSample;
+	sample = currSample;
 
-	currSample.position.y += 1.0f;
-	if (currSample.position.y > width)
+	currSample.setJ(currSample.getJ() + 1.0f);	
+	if (currSample.getJ() > film->getWidth())
 	{
-		currSample.position.y = 0.0f;
-		currSample.position.x += 1.0f;
+		currSample.setJ(0.0f);
+		currSample.setI(currSample.getI() + 1.0f);		
 	}
-	if (currSample.position.x > height)
+	if (currSample.getI() > film->getHeight())
 		return false;
 
 	return true;

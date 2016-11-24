@@ -4,18 +4,18 @@
 #include <glm\glm.hpp>
 
 #include "Sample.h"
+#include "Film.h"
 
 class Sampler
 {	
 public:
 	Sampler() {}
-	Sampler(int width, int height);
+	Sampler(Film& film);
 	Sampler& operator=(const Sampler& sampler);
 
-	bool generateSample(Sample* sample);
+	bool generateSample(Sample& sample);
 private:
-	int width;
-	int height;
+	Film* film;
 	Sample currSample;
 };
 

@@ -5,15 +5,15 @@
 
 class Sample
 {
-	friend class Sampler;
-
 public:
 	Sample();
-	Sample(float x, float y);
+	Sample(float i, float j);
 	Sample& operator=(const Sample& sample);
 
-	inline float getX() const { return position.x; }
-	inline float getY() const { return position.y; }
+	inline float getI() const { return position.x; }
+	inline float getJ() const { return position.y; }
+	inline void setI(float i) { position.x += i; }
+	inline void setJ(float j) { position.y += j; }
 
 	~Sample() { }
 private:

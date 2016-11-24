@@ -9,7 +9,7 @@ Color::Color(BYTE r, BYTE g, BYTE b)
 	rgb = glm::uvec3(r, g, b);
 }
 
-Color& Color::operator = (const Color& color)
+Color& Color::operator=(const Color& color)
 {
 	rgb = color.rgb;
 	return *this;

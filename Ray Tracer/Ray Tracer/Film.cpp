@@ -38,7 +38,7 @@ void Film::writeImage(const std::string& fname)
 
 void Film::commit(const Sample& sample, const Color& color)
 {
-	int pos = 3 * (int)sample.getX() * width + 3 * (int)sample.getY();
+	int pos = 3 * (int)sample.getI() * width + 3 * (int)sample.getJ();
 	pixels[pos + 0] = color.getB();
 	pixels[pos + 1] = color.getG();
 	pixels[pos + 2] = color.getR();

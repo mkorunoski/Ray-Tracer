@@ -5,9 +5,9 @@ Sample::Sample()
 	position = glm::vec2(0.5f, 0.5f);
 }
 
-Sample::Sample(float x, float y)
+Sample::Sample(float i, float j)
 {
-	position = glm::vec2(x, y);
+	position = glm::vec2(i, j);
 }
 
 Sample& Sample::operator=(const Sample& sample)

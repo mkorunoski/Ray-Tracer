@@ -1,4 +1,11 @@
+#ifndef CAMERA_H
+#define CAMERA_H
+
 #include <glm\glm.hpp>
+
+#include "Sample.h"
+#include "Ray.h"
+#include "Film.h"
 
 class Camera
 {
@@ -10,11 +17,15 @@ public:
 		int fov);
 	Camera& operator=(const Camera& camera);
 
+	void generateRay(Sample& sample, Ray& ray, const Film& film);
+
 	~Camera() { }
 private:
-	glm::vec3 lookFrom;
-	glm::vec3 lookAt;
-	glm::vec3 up;
-	int fov;
+	Point lookFrom;
+	Point lookAt;
+	Vector up;
+	int fovy;
 };
+
+#endif
 
